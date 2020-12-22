@@ -2,7 +2,6 @@ package page;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import wait.CustomWait;
 
 public class AddressPage extends AbstractPage {
@@ -11,13 +10,15 @@ public class AddressPage extends AbstractPage {
         super(driver);
     }
 
-    public void chooseOptionPickUpDelivery(String optionPickUpDeliveryButtonXPath) {
+    public AddressPage chooseOptionPickUpDelivery(String optionPickUpDeliveryButtonXPath) {
         webDriver.findElement(By.xpath(optionPickUpDeliveryButtonXPath)).click();
         CustomWait.waitForPageLoaded(webDriver);
+        return this;
     }
 
-    public void choosePickUpAddress(String choosePickUpAddressButtonXPath) {
+    public AddressPage choosePickUpAddress(String choosePickUpAddressButtonXPath) {
         webDriver.findElement(By.xpath(choosePickUpAddressButtonXPath)).click();
         CustomWait.waitForPageLoaded(webDriver);
+        return this;
     }
 }

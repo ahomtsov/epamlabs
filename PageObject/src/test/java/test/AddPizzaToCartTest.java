@@ -1,13 +1,12 @@
 package test;
 
 import constant.ConstantsForTesting;
-import org.junit.*;
-import org.openqa.selenium.By;
+import org.junit.AfterClass;
+import org.junit.Assert;
+import org.junit.BeforeClass;
+import org.junit.Test;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import page.AddressPage;
 import page.CartPage;
 import page.LandingPage;
@@ -29,37 +28,18 @@ public class AddPizzaToCartTest {
         LandingPage landingPage = new LandingPage(driver);
         landingPage.openThisPage(ConstantsForTesting.WEB_SITE_URL);
 
-        AddressPage addressPage = landingPage.openAddressPageByAddingPizzaToCart(ConstantsForTesting.addPizzaToCartButtonXPath);
-        addressPage.chooseOptionPickUpDelivery(ConstantsForTesting.optionPickUpDeliveryButtonXPath);
-        addressPage.choosePickUpAddress(ConstantsForTesting.choosePickUpAddressButtonXPath);
+        landingPage
+                .openAddressPageByAddingPizzaToCart(ConstantsForTesting.ADD_PIZZA_TO_CART_BUTTON_XPATH)
+                .chooseOptionPickUpDelivery(ConstantsForTesting.OPTION_PICKUP_DELIVERY_BUTTON_XPATH)
+                .choosePickUpAddress(ConstantsForTesting.CHOOSE_PICKUP_ADDRESS_BUTTON_XPATH);
 
-        CartPage cartPage = landingPage.openCartPage(ConstantsForTesting.openCartButtonXPath);
+        CartPage cartPage = landingPage.openCartPage(ConstantsForTesting.OPEN_CART_BUTTON_XPATH);
 
         ArrayList<String> namesOfPizzasInCartElementsXPaths = new ArrayList<>();
-        namesOfPizzasInCartElementsXPaths.add(ConstantsForTesting.nameOfPizzaInCartElementXPath);
+        namesOfPizzasInCartElementsXPaths.add(ConstantsForTesting.NAME_OF_PIZZA_IN_CART_ELEMENT_XPATH);
 
         Assert.assertEquals(ConstantsForTesting.EXPECTED_PIZZA_NAME_IN_CART, cartPage.getNamesOfPizzasInCart(namesOfPizzasInCartElementsXPaths).get(0));
-        Assert.assertEquals(ConstantsForTesting.EXPECTED_FINAL_PRICE, cartPage.getFinalPrice(ConstantsForTesting.finalPriceElementXPath));
-    }
-
-    @Test
-    public void neededPizzaAppearsAfterFilterByOneCriteria() {
-
-        LandingPage landingPage = new LandingPage(driver);
-        landingPage.openThisPage(ConstantsForTesting.WEB_SITE_URL);
-
-        landingPage.openFilter(ConstantsForTesting.openFilterButtonXPath);
-
-        ArrayList<String> filterCriteriaButtonsXPaths = new ArrayList<>();
-        filterCriteriaButtonsXPaths.add(ConstantsForTesting.filterCriteriaButtonXPath);
-        landingPage.chooseFilterCriteria(filterCriteriaButtonsXPaths);
-
-        landingPage.closeFilter(ConstantsForTesting.closeFilterButtonXPath);
-
-        ArrayList<String> namesOfPizzasAppearedAfterFilterElementsXPaths = new ArrayList<>();
-        namesOfPizzasAppearedAfterFilterElementsXPaths.add(ConstantsForTesting.nameOfPizzaAppearedAfterFilterElementXPath);
-
-        Assert.assertEquals(ConstantsForTesting.EXPECTED_PIZZA_NAME_AFTER_FILTER, landingPage.getNamesOfPizzasAppearedAfterFilter(namesOfPizzasAppearedAfterFilterElementsXPaths).get(0));
+        Assert.assertEquals(ConstantsForTesting.EXPECTED_FINAL_PRICE, cartPage.getFinalPrice(ConstantsForTesting.FINAL_PRICE_ELEMENT_XPATH));
     }
 
     @AfterClass

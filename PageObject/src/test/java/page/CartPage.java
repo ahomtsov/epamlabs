@@ -2,9 +2,6 @@ package page;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import wait.CustomWait;
-
 import java.util.ArrayList;
 
 public class CartPage extends AbstractPage {
