@@ -25,7 +25,7 @@ public abstract class AbstractPage {
 
     public void openNextPage(String buttonXPath) {
         WebElement element = webDriver.findElement(By.xpath(buttonXPath));
-        ((JavascriptExecutor) webDriver).executeScript("arguments[0].scrollIntoView(true);", element);
+        ((JavascriptExecutor) webDriver).executeScript("scroll(250, 0)", element);
         element.click();
         CustomWait.waitForPageLoaded(webDriver);
     }
