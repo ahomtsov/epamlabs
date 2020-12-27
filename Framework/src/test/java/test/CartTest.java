@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class CartTest extends CommonConditions {
 
     @Test
-    public void twoSelectedPizzasAppearInBasketAndFinalPriceChanges() {
+    public void twoSelectedPizzasAppearInBasketAndFinalPriceChanges() throws InterruptedException {
 
         LandingPage landingPage = new LandingPage(driver);
         landingPage.openThisPage(ConstantsForTesting.WEB_SITE_URL);
