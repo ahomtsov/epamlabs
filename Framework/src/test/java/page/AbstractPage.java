@@ -1,7 +1,9 @@
 package page;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 import wait.CustomWait;
@@ -22,7 +24,9 @@ public abstract class AbstractPage {
     }
 
     public void openNextPage(String buttonXPath) {
-        webDriver.findElement(By.xpath(buttonXPath)).click();
+        WebElement element = webDriver.findElement(By.xpath(buttonXPath));
+        ((JavascriptExecutor) webDriver).executeScript("arguments[0].scrollIntoView(true);", element);
+        element.click();
         CustomWait.waitForPageLoaded(webDriver);
     }
 }
