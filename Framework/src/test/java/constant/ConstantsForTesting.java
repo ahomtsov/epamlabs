@@ -6,7 +6,7 @@ public class ConstantsForTesting {
 
     public static final String ADD_FIRST_PIZZA_TO_CART_BUTTON_XPATH = "//*[@id=\"mainDiv\"]/div[1]/ul[1]/li[1]/div[4]/div/button/span[1]";
     public static final String ADD_SECOND_PIZZA_TO_CART_BUTTON_XPATH = "//*[@id=\"mainDiv\"]/div[1]/ul[1]/li[2]/div[5]/div/button/span[1]";
-    public static final String OPEN_CART_BUTTON_XPATH = "//*[@id=\"content\"]/div[2]/div[2]/div[2]/a";
+    public static final String OPEN_CART_BUTTON_XPATH = "//*[@id=\"content\"]/div[2]/div[2]/div[2]";
     public static final String OPEN_FILTER_BUTTON_XPATH = "//*[@id=\"filters\"]/span";
     public static final String CLOSE_FILTER_BUTTON_XPATH = "//*[@id=\"filters\"]/div/span[1]/i";
     public static final String FILTER_CRITERIA_BUTTON_XPATH = "//*[@id=\"filters\"]/div/div[1]/ul/li[9]/label/input";
