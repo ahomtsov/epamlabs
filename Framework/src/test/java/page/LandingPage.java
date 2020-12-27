@@ -18,7 +18,7 @@ public class LandingPage extends AbstractPage {
     }
 
     public CartPage openCartPage(String openCartButtonXPath) throws InterruptedException {
-        Thread.sleep(5000);
+        Thread.sleep(10000);
         openNextPage(openCartButtonXPath);
         return new CartPage(webDriver);
     }
