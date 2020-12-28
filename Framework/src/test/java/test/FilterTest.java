@@ -20,9 +20,9 @@ public class FilterTest extends CommonConditions {
         filterCriteriaButtonsXPaths.add(ConstantsForTesting.FILTER_CRITERIA_BUTTON_XPATH);
 
         landingPage
-                .openFilter(ConstantsForTesting.OPEN_FILTER_BUTTON_XPATH)
+                .openFilter()
                 .chooseFilterCriteria(filterCriteriaButtonsXPaths)
-                .closeFilter(ConstantsForTesting.CLOSE_FILTER_BUTTON_XPATH);
+                .closeFilter();
 
         ArrayList<String> namesOfPizzasAppearedAfterFilterElementsXPaths = new ArrayList<>();
         namesOfPizzasAppearedAfterFilterElementsXPaths.add(ConstantsForTesting.NAME_OF_PIZZA_APPEARED_AFTER_FILTER_ELEMENT_XPATH);

@@ -1,11 +1,18 @@
 package page;
 
+import constant.ConstantsForTesting;
 import model.Pizza;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+
 import java.util.ArrayList;
 
 public class CartPage extends AbstractPage {
+
+    @FindBy(xpath = ConstantsForTesting.FINAL_PRICE_ELEMENT_XPATH)
+    private WebElement finalPriceElement;
 
     public CartPage(WebDriver driver) {
         super(driver);
@@ -20,7 +27,7 @@ public class CartPage extends AbstractPage {
         return pizzasInCart;
     }
 
-    public String getFinalPrice(String finalPriceElementXPath) {
-        return webDriver.findElement(By.xpath(finalPriceElementXPath)).getText();
+    public String getFinalPrice() {
+        return finalPriceElement.getText();
     }
 }
